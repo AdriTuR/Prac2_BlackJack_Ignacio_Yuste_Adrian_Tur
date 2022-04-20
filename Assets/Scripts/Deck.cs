@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Deck : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class Deck : MonoBehaviour
     public Text probMessage;
 
     public int[] values = new int[52];
-    int cardIndex = 0;    
-       
+    int cardIndex = 0;
+
     private void Awake()
     {    
         InitCardValues();        
@@ -29,11 +30,25 @@ public class Deck : MonoBehaviour
 
     private void InitCardValues()
     {
-        /*TODO:
-         * Asignar un valor a cada una de las 52 cartas del atributo "values".
-         * En principio, la posición de cada valor se deberá corresponder con la posición de faces. 
-         * Por ejemplo, si en faces[1] hay un 2 de corazones, en values[1] debería haber un 2.
-         */
+        //Asignar los valores de un palo
+        int[] valoresPalo = new int[13];
+        int valoresPaloIndex = 0;
+
+        for (int i=0; i<=valoresPalo.Length-1 ; i++) 
+        {
+            if(i < 10) valoresPalo[i] = i + 1;
+            else valoresPalo[i] = 10;
+        }
+
+        //Asgnar un valor a los elementos de values
+        for (int i=0; i<=values.Length-1; i++)
+        {
+            values[i] = valoresPalo[valoresPaloIndex];
+
+            valoresPaloIndex++;
+            if (valoresPaloIndex == 13) valoresPaloIndex = 0;
+        }
+
     }
 
     private void ShuffleCards()
