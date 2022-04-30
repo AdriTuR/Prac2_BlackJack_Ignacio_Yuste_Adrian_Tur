@@ -143,7 +143,7 @@ public class Deck : MonoBehaviour
              */
             if (dealer.GetComponent<CardHand>().points == 21 && player.GetComponent<CardHand>().points == 21)
             {
-                finalMessage.text = "Has empatado";
+                finalMessage.text = "Empate";
                 finalMessage.color = Color.yellow;
                 hitButton.interactable = false;
                 stickButton.interactable = false;
@@ -216,17 +216,21 @@ public class Deck : MonoBehaviour
 
     public void Hit()
     {
-        /*TODO: 
-         * Si estamos en la mano inicial, debemos voltear la primera carta del dealer.
-         */
         
         //Repartimos carta al jugador
         PushPlayer();
 
+        if(player.GetComponent<CardHand>().points > 21)
+        {
+            finalMessage.text = "Has perdido";
+            finalMessage.color = Color.red;
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+        }
+
         /*TODO:
          * Comprobamos si el jugador ya ha perdido y mostramos mensaje
          */      
-
     }
 
     //-----------------------------------------------------------// 
@@ -234,16 +238,52 @@ public class Deck : MonoBehaviour
 
     public void Stand()
     {
-        /*TODO: 
-         * Si estamos en la mano inicial, debemos voltear la primera carta del dealer.
-         */
+
+        hitButton.interactable = false;
+        stickButton.interactable = false;
+
+        dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
+
+        do
+        {
+            PushDealer();
+        } while (dealer.GetComponent<CardHand>().points < 17);
+
+        if (dealer.GetComponent<CardHand>().points == player.GetComponent<CardHand>().points)
+        {
+            finalMessage.text = "Empate";
+            finalMessage.color = Color.yellow;
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+
+        }
+        else if (dealer.GetComponent<CardHand>().points > 21)
+        {
+            finalMessage.text = "Has ganado";
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+        }
+        else if (player.GetComponent<CardHand>().points > dealer.GetComponent<CardHand>().points)
+        {
+            finalMessage.text = "Has ganado";
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+        }
+        else if (player.GetComponent<CardHand>().points < dealer.GetComponent<CardHand>().points)
+        {
+            finalMessage.text = "Has perdido";
+            finalMessage.color = Color.red;
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+        }
+        
 
         /*TODO:
          * Repartimos cartas al dealer si tiene 16 puntos o menos
          * El dealer se planta al obtener 17 puntos o más
          * Mostramos el mensaje del que ha ganado
-         */                
-         
+         */
+
     }
 
     //-----------------------------------------------------------// 
