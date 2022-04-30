@@ -43,6 +43,8 @@ public class Deck : MonoBehaviour
 
     public Text finalMessage;
     public Text probMessage;
+    public Text pointPlayer;
+    public Text pointDealer;
 
     //----------------------------------// 
     //--------------Baraja--------------//
@@ -64,6 +66,11 @@ public class Deck : MonoBehaviour
     {
         ShuffleCards();
         StartGame();        
+    }
+
+    private void Update()
+    {
+        pointPlayer.text = player.GetComponent<CardHand>().points.ToString();
     }
 
     //-----------------------------------------------------------// 
@@ -108,6 +115,7 @@ public class Deck : MonoBehaviour
 
     private void ShuffleCards()
     {
+        BarajaAleatoria.Clear();
 
         //Creación y copia de baraja en una baraja Auxiliar
         List<GameObject> BarajaAux = new List<GameObject>();
@@ -147,13 +155,20 @@ public class Deck : MonoBehaviour
                 finalMessage.color = Color.yellow;
                 hitButton.interactable = false;
                 stickButton.interactable = false;
-                
+                pointDealer.enabled = true;
+                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
+
             }
             else if (player.GetComponent<CardHand>().points==21 || dealer.GetComponent<CardHand>().points > 21)
             {
                 finalMessage.text = "Has ganado";
+                finalMessage.color = Color.green;
                 hitButton.interactable = false;
                 stickButton.interactable = false;
+                pointDealer.enabled = true;
+                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
             }
             else if(dealer.GetComponent<CardHand>().points == 21 || player.GetComponent<CardHand>().points > 21)
             {
@@ -161,6 +176,9 @@ public class Deck : MonoBehaviour
                 finalMessage.color = Color.red;
                 hitButton.interactable = false;
                 stickButton.interactable = false;
+                pointDealer.enabled = true;
+                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
             }
             
         }
@@ -226,6 +244,19 @@ public class Deck : MonoBehaviour
             finalMessage.color = Color.red;
             hitButton.interactable = false;
             stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
+        }
+        else if(player.GetComponent<CardHand>().points == 21)
+        {
+            finalMessage.text = "Has ganado";
+            finalMessage.color = Color.green;
+            hitButton.interactable = false;
+            stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
         }
 
         /*TODO:
@@ -255,19 +286,27 @@ public class Deck : MonoBehaviour
             finalMessage.color = Color.yellow;
             hitButton.interactable = false;
             stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
 
         }
         else if (dealer.GetComponent<CardHand>().points > 21)
         {
             finalMessage.text = "Has ganado";
+            finalMessage.color = Color.green;
             hitButton.interactable = false;
             stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
         }
         else if (player.GetComponent<CardHand>().points > dealer.GetComponent<CardHand>().points)
         {
             finalMessage.text = "Has ganado";
+            finalMessage.color = Color.green;
             hitButton.interactable = false;
             stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
         }
         else if (player.GetComponent<CardHand>().points < dealer.GetComponent<CardHand>().points)
         {
@@ -275,6 +314,8 @@ public class Deck : MonoBehaviour
             finalMessage.color = Color.red;
             hitButton.interactable = false;
             stickButton.interactable = false;
+            pointDealer.enabled = true;
+            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
         }
         
 
@@ -298,6 +339,7 @@ public class Deck : MonoBehaviour
         player.GetComponent<CardHand>().Clear();
         dealer.GetComponent<CardHand>().Clear();          
         cardIndex = 0;
+        pointDealer.enabled = false;
         ShuffleCards();
         StartGame();
     }
