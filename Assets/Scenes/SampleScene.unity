@@ -329,6 +329,7 @@ MonoBehaviour:
   playAgainButton: {fileID: 495796953}
   finalMessage: {fileID: 1167008771}
   probMessage: {fileID: 459416828}
+  BarajaInicial: []
   BarajaAleatoria: []
 --- !u!1 &276339162
 GameObject:

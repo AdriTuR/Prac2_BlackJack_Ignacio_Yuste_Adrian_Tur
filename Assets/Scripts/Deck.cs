@@ -135,9 +135,34 @@ public class Deck : MonoBehaviour
         {
             PushPlayer();
             PushDealer();
+            //dealer.GetComponent<CardHand>().points = 17;
+            //player.GetComponent<CardHand>().points = 18;
+
             /*TODO:
              * Si alguno de los dos obtiene Blackjack, termina el juego y mostramos mensaje
              */
+            if (dealer.GetComponent<CardHand>().points == 21 && player.GetComponent<CardHand>().points == 21)
+            {
+                finalMessage.text = "Has empatado";
+                finalMessage.color = Color.yellow;
+                hitButton.interactable = false;
+                stickButton.interactable = false;
+                
+            }
+            else if (player.GetComponent<CardHand>().points==21 || dealer.GetComponent<CardHand>().points > 21)
+            {
+                finalMessage.text = "Has ganado";
+                hitButton.interactable = false;
+                stickButton.interactable = false;
+            }
+            else if(dealer.GetComponent<CardHand>().points == 21 || player.GetComponent<CardHand>().points > 21)
+            {
+                finalMessage.text = "Has perdido";
+                finalMessage.color = Color.red;
+                hitButton.interactable = false;
+                stickButton.interactable = false;
+            }
+            
         }
     }
 
@@ -219,6 +244,7 @@ public class Deck : MonoBehaviour
 
     public void PlayAgain()
     {
+        
         hitButton.interactable = true;
         stickButton.interactable = true;
         finalMessage.text = "";
@@ -227,6 +253,8 @@ public class Deck : MonoBehaviour
         cardIndex = 0;
         ShuffleCards();
         StartGame();
+        
+
     }
     
 }
