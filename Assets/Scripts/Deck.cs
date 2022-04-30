@@ -4,22 +4,60 @@ using System.Collections.Generic;
 
 public class Deck : MonoBehaviour
 {
+    //-----------------------------------------------------------------------------// 
+    //------------------------------ ATRIBUTOS ------------------------------------// 
+
+    //-------------------------------------// 
+    //-------------ModeloCarta-------------// 
+
+    [Header("Modelo Carta")]
+
+    public GameObject defaultCarta;
     public Sprite[] faces;
+    public int[] values = new int[52];
+    public string[] nombres = new string[52];
+
+    int cardIndex = 0;
+
+    //-------------------------------------// 
+    //-----------Player & Dealer-----------// 
+
+    [Header("Player & Dealer")]
+
     public GameObject dealer;
     public GameObject player;
+
+    //-------------------------------------// 
+    //--------------Botones----------------// 
+
+    [Header("Botones")]
+
     public Button hitButton;
     public Button stickButton;
     public Button playAgainButton;
+
+    //----------------------------------// 
+    //--------------HUD----------------// 
+
+    [Header("Mensajes")]
+
     public Text finalMessage;
     public Text probMessage;
 
-    public int[] values = new int[52];
-    int cardIndex = 0;
+    //----------------------------------// 
+    //--------------Baraja--------------//
+
+    [Header("Baraja")]
+    public List<GameObject> BarajaInicial = new List<GameObject>();
+    public List<GameObject> BarajaAleatoria = new List<GameObject>();
+    public Stack<GameObject> BarajaAux = new Stack<GameObject>();
+
+    //-----------------------------------------------------------------------------// 
+    //------------------------------ MÉTODOS --------------------------------------// 
 
     private void Awake()
     {    
-        InitCardValues();        
-
+        InitCardValues();  
     }
 
     private void Start()
@@ -27,6 +65,9 @@ public class Deck : MonoBehaviour
         ShuffleCards();
         StartGame();        
     }
+
+    //-----------------------------------------------------------// 
+    //--------------------- InitCardValues ----------------------//
 
     private void InitCardValues()
     {
@@ -49,16 +90,44 @@ public class Deck : MonoBehaviour
             if (valoresPaloIndex == 13) valoresPaloIndex = 0;
         }
 
+        //Baraja inicial como GameObject
+        for (int i = 0; i <= faces.Length - 1; i++)
+        {
+            GameObject carta = Instantiate(defaultCarta);
+            carta.name = nombres[i];
+            carta.GetComponent<CardModel>().value = values[i];
+            carta.GetComponent<CardModel>().front = faces[i];
+
+            BarajaInicial.Add(carta);
+        }
+
     }
+
+    //-----------------------------------------------------------// 
+    //--------------------- ShuffleCards ------------------------//
 
     private void ShuffleCards()
     {
-        /*TODO:
-         * Barajar las cartas aleatoriamente.
-         * El método Random.Range(0,n), devuelve un valor entre 0 y n-1
-         * Si lo necesitas, puedes definir nuevos arrays.
-         */       
+
+        //Creación y copia de baraja en una baraja Auxiliar
+        List<GameObject> BarajaAux = new List<GameObject>();
+        foreach (GameObject carta in BarajaInicial)
+        {
+            BarajaAux.Add(carta);
+        }
+
+        //Baraja aleatoria
+        for(int i=0; i<=51; i++)
+        {
+            int indiceRandom = Random.Range(0, BarajaAux.Count - 1);
+            GameObject carta = BarajaAux[indiceRandom];
+            BarajaAux.RemoveAt(indiceRandom);
+            BarajaAleatoria.Add(carta);
+        }
     }
+
+    //-----------------------------------------------------------// 
+    //----------------------- StartGame -------------------------//
 
     void StartGame()
     {
@@ -72,6 +141,9 @@ public class Deck : MonoBehaviour
         }
     }
 
+    //-----------------------------------------------------------// 
+    //---------------- CalculateProbabilities -------------------//
+
     private void CalculateProbabilities()
     {
         /*TODO:
@@ -82,6 +154,9 @@ public class Deck : MonoBehaviour
          */
     }
 
+    //-----------------------------------------------------------// 
+    //----------------------- PushDealer -----------------------//
+
     void PushDealer()
     {
         /*TODO:
@@ -91,6 +166,9 @@ public class Deck : MonoBehaviour
         cardIndex++;        
     }
 
+    //-----------------------------------------------------------// 
+    //----------------------- PushPlayer ------------------------//
+
     void PushPlayer()
     {
         /*TODO:
@@ -99,7 +177,10 @@ public class Deck : MonoBehaviour
         player.GetComponent<CardHand>().Push(faces[cardIndex], values[cardIndex]/*,cardCopy*/);
         cardIndex++;
         CalculateProbabilities();
-    }       
+    }
+
+    //-----------------------------------------------------------// 
+    //--------------------------- Hit ---------------------------//
 
     public void Hit()
     {
@@ -116,6 +197,9 @@ public class Deck : MonoBehaviour
 
     }
 
+    //-----------------------------------------------------------// 
+    //------------------------- Stand ---------------------------//
+
     public void Stand()
     {
         /*TODO: 
@@ -129,6 +213,9 @@ public class Deck : MonoBehaviour
          */                
          
     }
+
+    //-----------------------------------------------------------// 
+    //---------------------- PlayAgain --------------------------//
 
     public void PlayAgain()
     {
