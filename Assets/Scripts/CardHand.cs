@@ -35,7 +35,7 @@ public class CardHand : MonoBehaviour
 
     public void InitialToggle()
     {
-        cards[0].GetComponent<CardModel>().ToggleFace(true);              
+        cards[0].GetComponent<CardModel>().ToggleFace(true);
     }
 
     public void Push(Sprite front, int value)
