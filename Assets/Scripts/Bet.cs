@@ -31,9 +31,11 @@ public class Bet : MonoBehaviour
     //------------------------------ MÉTODOS --------------------------------------// 
     void Start()
     {
+        //Establece 1000 euros al jugador
         dineroDisponible = 1000;
         dineroApostado = 0;
 
+        //Deshabilitar botones del Juego
         this.gameObject.GetComponent<Deck>().hitButton.interactable = false;
         this.gameObject.GetComponent<Deck>().stickButton.interactable = false;
     }
@@ -44,71 +46,92 @@ public class Bet : MonoBehaviour
         dineroApostado_text.text = dineroApostado.ToString();
     }
 
-    public void anyadir10()
+    //-----------------------------------------------------------// 
+    //--------------------- AnyadirApuesta ----------------------//
+
+    public void anyadirApuestaDiez()
     {
         if (dineroDisponible >= dineroApostado + 10) dineroApostado += 10;
 
     }
 
-    public void anyadir100()
+    public void anyadirApuestaCien()
     {
         if (dineroDisponible >= dineroApostado + 100) dineroApostado += 100;
     }
-    public void anyadir1000()
+
+    public void anyadirApuestaMil()
     {
         if (dineroDisponible >= dineroApostado + 1000) dineroApostado += 1000;
     }
-    public void quitar10()
-    {
-        if (dineroApostado >= 10) dineroApostado -= 10;
-    }
-    public void quitar100()
-    {
-        if (dineroApostado >= 100) dineroApostado -= 100;
-    }
-    public void quitar1000()
-    {
-        if (dineroApostado >= 1000) dineroApostado -= 1000;
-    }
 
-    public void clearBet()
-    {
-        dineroApostado = 0;
-    }
-
-    public void AllIn()
+    public void apostarTodo()
     {
         dineroApostado = dineroDisponible;
     }
 
-    public void apostar()
+    //-----------------------------------------------------------// 
+    //-------------------- EliminarApuesta ----------------------//
+
+    public void eliminarApuestaDiez()
     {
+        if (dineroApostado >= 10) dineroApostado -= 10;
+    }
+    public void eliminarApuestaCien()
+    {
+        if (dineroApostado >= 100) dineroApostado -= 100;
+    }
+    public void eliminarApuestaMil()
+    {
+        if (dineroApostado >= 1000) dineroApostado -= 1000;
+    }
+
+    public void borrarApuesta()
+    {
+        dineroApostado = 0;
+    }
+
+    //-----------------------------------------------------------// 
+    //-------------------- EmpezarApuesta ----------------------//
+
+    public void apostarAndEmpezar()
+    {
+
+        //Habilitar botones del Juego
         this.gameObject.GetComponent<Deck>().hitButton.interactable = true;
         this.gameObject.GetComponent<Deck>().stickButton.interactable = true;
 
+        //Barajar y empezar juego
         this.gameObject.GetComponent<Deck>().ShuffleCards();
         this.gameObject.GetComponent<Deck>().StartGame();
 
+        //Deshabilitar botones de Apuestas
         desactivarBotonesApostar();
 
     }
 
-    public void winBet()
+    //-----------------------------------------------------------// 
+    //---------------- Resultados de Apuesta --------------------//
+
+    public void ganarApuesta()
     {
         dineroDisponible += 2 * dineroApostado;
         dineroApostado = 0;
     }
 
-    public void loseBet()
+    public void perderApuesta()
     {
         dineroDisponible -= dineroApostado;
         dineroApostado = 0;
     }
 
-    public void tieBet()
+    public void empatarApuesta()
     {
         dineroApostado = 0;
     }
+
+    //-----------------------------------------------------------// 
+    //------------ Control de botones de Apuesta ----------------//
 
     public void desactivarBotonesApostar()
     {
@@ -133,4 +156,7 @@ public class Bet : MonoBehaviour
         ClearButton.interactable = true;
         All_InButton.interactable = true;
     }
+
+    //-----------------------------------------------------------------------------// 
+    //-----------------------------------------------------------------------------// 
 }

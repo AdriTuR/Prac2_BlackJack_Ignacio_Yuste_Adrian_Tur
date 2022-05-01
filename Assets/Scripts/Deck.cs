@@ -71,7 +71,7 @@ public class Deck : MonoBehaviour
 
     private void Update()
     {
-        pointPlayer.text = player.GetComponent<CardHand>().points.ToString();
+        pointPlayer.text = "Puntuación: " + player.GetComponent<CardHand>().points.ToString();
     }
 
     //-----------------------------------------------------------// 
@@ -167,11 +167,11 @@ public class Deck : MonoBehaviour
 
                 //Mostrar puntuación dealer
                 pointDealer.enabled = true;
-                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
                 dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
 
                 //Apuesta
-                this.gameObject.GetComponent<Bet>().tieBet();
+                this.gameObject.GetComponent<Bet>().empatarApuesta();
             }
 
             //Caso 2: Ganar si player tiene 21 y el dealer tiene menos de 21 al empezar partida
@@ -187,11 +187,11 @@ public class Deck : MonoBehaviour
 
                 //Mostrar puntuación dealer
                 pointDealer.enabled = true;
-                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
                 dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
 
                 //Apuesta
-                this.gameObject.GetComponent<Bet>().winBet();
+                this.gameObject.GetComponent<Bet>().ganarApuesta();
             }
 
             //Caso 3: Perder si dealer tiene 21 y el player tiene menos de 21 al empezar partida
@@ -207,11 +207,11 @@ public class Deck : MonoBehaviour
 
                 //Mostrar puntuación dealer
                 pointDealer.enabled = true;
-                pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+                pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
                 dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
 
                 //Apuesta
-                this.gameObject.GetComponent<Bet>().loseBet();
+                this.gameObject.GetComponent<Bet>().perderApuesta();
             }
         }
     }
@@ -221,21 +221,11 @@ public class Deck : MonoBehaviour
 
     private void CalculateProbabilities()
     {
-        //Calculo de la media
-        double media = 0;
-        foreach (GameObject carta in BarajaProbabilidades)
-        {
-            media += carta.GetComponent<CardModel>().value;
-        }
-        media /= BarajaProbabilidades.Count;
 
-
-
-        //Teniendo la carta oculta, probabilidad de que el dealer tenga más puntuación que el jugador
+        //PROBABILIDAD 1: Teniendo la carta oculta, probabilidad de que el dealer tenga más puntuación que el jugador
 
         double cartasProb1 = 0;
         double Prob1 = 0;
-
         foreach (GameObject carta in BarajaProbabilidades)
         {
             if (carta.GetComponent<CardModel>().value
@@ -244,20 +234,14 @@ public class Deck : MonoBehaviour
             {
                 cartasProb1++;
             }
-            /*Debug.Log(carta.GetComponent<CardModel>().value + dealer.gameObject.GetComponent<CardHand>().points
-                - BarajaAleatoria[1].gameObject.GetComponent<CardModel>().value);*/
         }
-
-        Debug.Log(BarajaAleatoria[3].gameObject.GetComponent<CardModel>().value);
-
         Prob1 = (cartasProb1 / BarajaProbabilidades.Count) * 100;
-        probMessage.text = "Probabilidad 1: " + string.Format("{0:0.00}", Prob1) + "% \n";
+        probMessage.text = "El dealer tiene más puntuación: " + string.Format("{0:0.00}", Prob1) + "% \n";
 
-        //Probabilidad de que el jugador obtenga entre un 17 y un 21 si pide una carta
+        //PROBABILIDAD 2: Probabilidad de que el jugador obtenga entre un 17 y un 21 si pide una carta
 
         double cartasProb2 = 0;
         double Prob2 = 0;
-
         foreach (GameObject carta in BarajaProbabilidades)
         {
             if (carta.GetComponent<CardModel>().value + player.gameObject.GetComponent<CardHand>().points <= 21
@@ -266,15 +250,13 @@ public class Deck : MonoBehaviour
                 cartasProb2++;
             }
         }
-
         Prob2 = (cartasProb2 / BarajaProbabilidades.Count) * 100;
-        probMessage.text += "Probabilidad 2: " + string.Format("{0:0.00}", Prob2) + "% \n";
+        probMessage.text += "Obtener entre 17 y 21: " + string.Format("{0:0.00}", Prob2) + "% \n";
 
-        //Probabilidad de que el jugador obtenga más de 21 si pide una carta          
+        //PROBABILIDAD 3: Probabilidad de que el jugador obtenga más de 21 si pide una carta          
 
         double cartasProb3 = 0;
         double Prob3 = 0;
-
         foreach (GameObject carta in BarajaProbabilidades)
         {
             if (carta.GetComponent<CardModel>().value + player.gameObject.GetComponent<CardHand>().points > 21)
@@ -282,16 +264,8 @@ public class Deck : MonoBehaviour
                 cartasProb3++;
             }
         }
-
         Prob3 = (cartasProb3 / BarajaProbabilidades.Count) * 100;
-        probMessage.text += "Probabilidad 3: " + string.Format("{0:0.00}", Prob3) + "%";
-
-        /*TODO:
-         * Calcular las probabilidades de:
-         * - Teniendo la carta oculta, probabilidad de que el dealer tenga más puntuación que el jugador
-         * - Probabilidad de que el jugador obtenga entre un 17 y un 21 si pide una carta
-         * - Probabilidad de que el jugador obtenga más de 21 si pide una carta          
-         */
+        probMessage.text += "Obtener mas de 21: " + string.Format("{0:0.00}", Prob3) + "%";
     }
 
     //-----------------------------------------------------------// 
@@ -343,11 +317,11 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
             dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().loseBet();
+            this.gameObject.GetComponent<Bet>().perderApuesta();
         }
 
         //Caso 5: Ganar si player tiene 21 al pedir una carta
@@ -363,11 +337,11 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
             dealer.GetComponent<CardHand>().cards[0].GetComponent<CardModel>().ToggleFace(true);
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().winBet();
+            this.gameObject.GetComponent<Bet>().ganarApuesta();
         }
     }
 
@@ -403,10 +377,10 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().tieBet();
+            this.gameObject.GetComponent<Bet>().empatarApuesta();
         }
 
         //Caso 7: Ganar cuando el dealer se ha pasado de 21
@@ -422,10 +396,10 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().winBet();
+            this.gameObject.GetComponent<Bet>().ganarApuesta();
         }
 
         //Caso 7: Ganar cuando la puntuacion del player es mayor a la del dealer al plantarse
@@ -441,10 +415,10 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().winBet();
+            this.gameObject.GetComponent<Bet>().ganarApuesta();
         }
 
         //Caso 7:Perder cuando la puntuacion del player es menor a la del dealer al plantarse
@@ -460,10 +434,10 @@ public class Deck : MonoBehaviour
 
             //Mostrar puntuación dealer
             pointDealer.enabled = true;
-            pointDealer.text = dealer.GetComponent<CardHand>().points.ToString();
+            pointDealer.text = "Puntuación: " + dealer.GetComponent<CardHand>().points.ToString();
 
             //Apuesta
-            this.gameObject.GetComponent<Bet>().loseBet();
+            this.gameObject.GetComponent<Bet>().perderApuesta();
         }
     }
 
@@ -481,9 +455,11 @@ public class Deck : MonoBehaviour
         player.GetComponent<CardHand>().Clear();
         dealer.GetComponent<CardHand>().Clear();
         BarajaProbabilidades.Clear();
+        probMessage.text = "";
         cardIndex = 0;
         pointDealer.enabled = false;
 
+        //Activar Botones de Apuesta
         this.gameObject.GetComponent<Bet>().activarBotonesApostar();
     }
 

@@ -396,8 +396,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89.95245, y: -321.30243}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -222, y: -104.99988}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142221092
 MonoBehaviour:
@@ -483,7 +483,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: quitar10
+        m_MethodName: eliminarApuestaDiez
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -563,7 +563,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hit
+  m_Text: 'Pedir '
 --- !u!222 &276339165
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bet
+  m_Text: Apostar
 --- !u!222 &301069956
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -685,7 +685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 265, y: -331}
+  m_AnchoredPosition: {x: -103, y: -197}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &335551201
@@ -718,11 +718,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 20
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -764,7 +764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 371, y: -300}
+  m_AnchoredPosition: {x: -227, y: -232}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &410619569
@@ -845,8 +845,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -89.95245, y: -268.30255}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -222, y: -52}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456126021
 MonoBehaviour:
@@ -932,7 +932,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: anyadir10
+        m_MethodName: anyadirApuestaDiez
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -976,8 +976,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410.65, y: 176}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -478, y: 197}
+  m_SizeDelta: {x: 280, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459416828
 MonoBehaviour:
@@ -1012,7 +1012,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '-'
 --- !u!222 &459416829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1163,8 +1163,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418, y: -94}
-  m_SizeDelta: {x: 110, y: 25}
+  m_AnchoredPosition: {x: -496, y: 84}
+  m_SizeDelta: {x: 110, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
 GameObject:
@@ -1285,8 +1285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418, y: 6}
-  m_SizeDelta: {x: 110, y: 25}
+  m_AnchoredPosition: {x: -431, y: 137}
+  m_SizeDelta: {x: 110, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532673294
 MonoBehaviour:
@@ -1418,8 +1418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 585, y: -293}
-  m_SizeDelta: {x: 116.8, y: 45}
+  m_AnchoredPosition: {x: -87, y: -287}
+  m_SizeDelta: {x: 178, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580982344
 MonoBehaviour:
@@ -1467,7 +1467,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: apostar
+        m_MethodName: apostarAndEmpezar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,8 +1721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48.047363, y: -266.30243}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -84.00018, y: -49.999878}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815434580
 MonoBehaviour:
@@ -1808,7 +1808,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: anyadir1000
+        m_MethodName: anyadirApuestaMil
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1931,7 +1931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -411.3, y: 217}
+  m_AnchoredPosition: {x: -540, y: 262}
   m_SizeDelta: {x: 161.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909818999
@@ -2014,8 +2014,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171, y: -292}
-  m_SizeDelta: {x: 69.1, y: 45}
+  m_AnchoredPosition: {x: 18, y: -109}
+  m_SizeDelta: {x: 125, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910874676
 MonoBehaviour:
@@ -2063,7 +2063,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: clearBet
+        m_MethodName: borrarApuesta
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2151,11 +2151,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 20
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2187,7 +2187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 409, y: -331}
+  m_AnchoredPosition: {x: -103.1, y: -227.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1012879138
@@ -2305,8 +2305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49.047546, y: -322.30255}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -85, y: -106}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034542112
 MonoBehaviour:
@@ -2392,7 +2392,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: quitar1000
+        m_MethodName: eliminarApuestaMil
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2438,8 +2438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 126, y: -292}
-  m_SizeDelta: {x: 69.1, y: 45}
+  m_AnchoredPosition: {x: 18, y: -53}
+  m_SizeDelta: {x: 125, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149697187
 MonoBehaviour:
@@ -2487,7 +2487,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: AllIn
+        m_MethodName: apostarTodo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2648,8 +2648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178, y: 225}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -161, y: 225}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1203583550
 MonoBehaviour:
@@ -2903,7 +2903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clear Bet
+  m_Text: Borrar Apuesta
 --- !u!222 &1359920125
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2982,7 +2982,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play Again
+  m_Text: Jugar otra vez
 --- !u!222 &1397052297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3133,7 +3133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 227, y: -300}
+  m_AnchoredPosition: {x: -226, y: -201}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1543253025
@@ -3254,7 +3254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584045337}
   m_Layer: 0
-  m_Name: Apuestas
+  m_Name: BetButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3268,7 +3268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584045336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -390.04755, y: 57.30243, z: -93.05755}
+  m_LocalPosition: {x: -390.04755, y: 41, z: -93.05755}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456126020}
@@ -3323,8 +3323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.952454, y: -321.30255}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -153, y: -105}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737289555
 MonoBehaviour:
@@ -3410,7 +3410,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: quitar100
+        m_MethodName: eliminarApuestaCien
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3490,7 +3490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: All in
+  m_Text: Apostar todo
 --- !u!222 &1806333543
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3533,8 +3533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178, y: -30}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -169, y: -30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837029105
 MonoBehaviour:
@@ -3693,8 +3693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.952454, y: -268.30243}
-  m_SizeDelta: {x: 45, y: 45}
+  m_AnchoredPosition: {x: -153, y: -51.999878}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1846442973
 MonoBehaviour:
@@ -3780,7 +3780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 113795719}
         m_TargetAssemblyTypeName: Bet, Assembly-CSharp
-        m_MethodName: anyadir100
+        m_MethodName: anyadirApuestaCien
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3907,7 +3907,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stand
+  m_Text: Plantarse
 --- !u!222 &2032017425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3952,8 +3952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418, y: -44}
-  m_SizeDelta: {x: 110, y: 25}
+  m_AnchoredPosition: {x: -564, y: 138}
+  m_SizeDelta: {x: 110, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2074924242
 MonoBehaviour:
